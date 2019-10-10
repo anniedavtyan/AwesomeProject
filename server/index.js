@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 
 const app = express()
 app.use(express.json())
-mongoose.connect("mongodb://localhost:27017/TEST", { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false });
+mongoose.connect("mongodb://localhost:27017/TEST", 
+{ useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false,  useUnifiedTopology: true
+});
 const connection = mongoose.connection;
 connection.once('open', () => console.log('MongoDB is connected'));
 
